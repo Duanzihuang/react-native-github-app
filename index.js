@@ -10,6 +10,13 @@ import { name as appName } from './app.json'
 import { createAppContainer } from 'react-navigation'
 import { AppStackNavigator } from './navigators/AppNavigators'
 
-const AppStackNavigatorContainer = createAppContainer(AppStackNavigator)
+import AppNavigator from './navigators/AppNavigators'
 
+// const AppStackNavigatorContainer = createAppContainer(AppStackNavigator)
+// 测试 SwitchNavigator
+const AppStackNavigatorContainer = createAppContainer(AppNavigator)
+
+// AppRegistry.registerComponent(appName, () => AppStackNavigatorContainer)
+
+// 测试 SwitchNavigator
 AppRegistry.registerComponent(appName, () => AppStackNavigatorContainer)

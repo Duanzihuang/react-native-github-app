@@ -1,13 +1,16 @@
 import React from 'react'
+import { createSwitchNavigator } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
+import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer'
 
 // 导入字体图标库
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 // 导入ReactNative 提供的组件
-import { Button, Platform } from 'react-native'
+import { Button, Platform, ScrollView, SafeAreaView } from 'react-native'
 
 // 导入子组件
 import HomePage from '../pages/homepage'
@@ -16,6 +19,7 @@ import Page2 from '../pages/page2'
 import Page3 from '../pages/page3'
 import Page4 from '../pages/page4'
 import Page5 from '../pages/page5'
+import Login from '../pages/login'
 
 const TopTabNavigator = createMaterialTopTabNavigator({
     Page1: {
@@ -113,6 +117,39 @@ const BottomTabNavigator = createMaterialBottomTabNavigator(
 }
 )
 
+const DrawerNavigator = createDrawerNavigator({
+    Page4: {
+        screen: Page4,
+        navigationOptions: {
+            drawerLabel: 'Page4',
+            drawerIcon: ({ tintColor }) => {
+                return <MaterialIcons name="drafts" size={24} style={{ color: tintColor }} />
+            }
+        }
+    },
+    Page5: {
+        screen: Page5,
+        navigationOptions: {
+            drawerLabel: 'Page5',
+            drawerIcon: ({ tintColor }) => {
+                return <MaterialIcons name="move-to-inbox" size={24} style={{ color: tintColor }} />
+            }
+        }
+    }
+}, {
+    initialRouteName: 'Page4',
+    contentOptions: {
+        activeTintColor: '#e91e63'
+    },
+    contentComponent: props => {
+        return <ScrollView style={{ backgroundColor: '#789', flex: 1 }}>
+            <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
+                <DrawerItems {...props} />
+            </SafeAreaView>
+        </ScrollView>
+    }
+})
+
 export const AppStackNavigator = createStackNavigator({
     HomePage: {
         screen: HomePage
@@ -162,5 +199,33 @@ export const AppStackNavigator = createStackNavigator({
         navigationOptions: { // 静态配置
             title: 'This is BottomTabNavigator'
         }
+    },
+    Drawer: {
+        screen: DrawerNavigator,
+        navigationOptions: { // 静态配置
+            title: 'This is DrawerNavigator'
+        }
     }
+})
+
+const AppStack = createStackNavigator({
+    Home: {
+        screen: HomePage
+    },
+    Page1: {
+        screen: Page1
+    }
+})
+
+const AuthStack = createStackNavigator({
+    Login: {
+        screen: Login
+    }
+})
+
+export default createSwitchNavigator({
+    App: AppStack,
+    Auth: AuthStack
+}, {
+    initialRouteName: 'Auth'
 })

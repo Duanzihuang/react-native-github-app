@@ -15,6 +15,7 @@ class HomePage extends React.Component {
             <Button title="Go To Page3" onPress={() => { navigation.navigate('Page3', { title: '动态的3' }) }} />
             <Button title="Go To Top Navigator" onPress={() => { navigation.navigate('Top') }} />
             <Button title="Go To Bottom Navigator" onPress={() => { navigation.navigate('Bottom') }} />
+            <Button title="Go To Drawer" onPress={() => { navigation.navigate('Drawer') }} />
         </View>
     }
 }
