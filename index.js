@@ -12,9 +12,9 @@ import { AppStackNavigator } from './navigators/AppNavigators'
 
 import AppNavigator from './navigators/AppNavigators'
 
-// const AppStackNavigatorContainer = createAppContainer(AppStackNavigator)
+const AppStackNavigatorContainer = createAppContainer(AppStackNavigator)
 // 测试 SwitchNavigator
-const AppStackNavigatorContainer = createAppContainer(AppNavigator)
+// const AppStackNavigatorContainer = createAppContainer(AppNavigator)
 
 // AppRegistry.registerComponent(appName, () => AppStackNavigatorContainer)
 

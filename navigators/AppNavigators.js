@@ -20,6 +20,8 @@ import Page3 from '../pages/page3'
 import Page4 from '../pages/page4'
 import Page5 from '../pages/page5'
 import Login from '../pages/login'
+import FlatListDemo from '../pages/flatListDemo'
+import SectionListDemo from '../pages/sectionListDemo'
 
 const TopTabNavigator = createMaterialTopTabNavigator({
     Page1: {
@@ -204,6 +206,18 @@ export const AppStackNavigator = createStackNavigator({
         screen: DrawerNavigator,
         navigationOptions: { // 静态配置
             title: 'This is DrawerNavigator'
+        }
+    },
+    FlatListDemo: {
+        screen: FlatListDemo,
+        navigationOptions: {
+            tabBarLabel: 'FlatListDemo'
+        }
+    },
+    SectionListDemo: {
+        screen: SectionListDemo,
+        navigationOptions: {
+            tabBarLabel: 'SectionListDemo'
         }
     }
 })
