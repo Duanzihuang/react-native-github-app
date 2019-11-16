@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-export default class Favorite extends React.Component {
+class Favorite extends React.Component {
     render() {
         return <View style={styles.container}>
             <Text>Favorite</Text>
@@ -14,3 +14,5 @@ const styles = StyleSheet.create({
         flex: 1
     }
 })
+
+export default Favorite

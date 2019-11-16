@@ -1,17 +1,17 @@
 export default class NavigatorUtil {
-    static goBack(navigation) {
-        navigation.goBack()
-    }
+  static goBack(navigation) {
+    navigation.goBack()
+  }
 
-    static goToPage(params, pageName) {
-        const { navigation } = params
+  static goToPage(params, pageName) {
+    const {navigation} = params
 
-        navigation.navigate(pageName)
-    }
+    navigation.navigate(pageName)
+  }
 
-    static goToHomePage(params) {
-        const { navigation } = params
+  static goToHomePage(params) {
+    const {navigation} = params
 
-        navigation.navigate('Main')
-    }
+    navigation.navigate('Main')
+  }
 }
